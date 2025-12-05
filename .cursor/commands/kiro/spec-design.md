@@ -23,11 +23,11 @@ argument-hint: <feature-name:$1> [-y:$2]
 ### ステップ1: コンテキストの読み込み
 
 **必要なすべてのコンテキストを読み込み**:
-- `.kiro/specs/$1/spec.json`、`requirements.md`、`design.md`（存在する場合）
-- **`.kiro/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
-- `.kiro/settings/templates/specs/design.md` からドキュメント構造
-- `.kiro/settings/rules/design-principles.md` から設計原則
-- `.kiro/settings/templates/specs/research.md` から発見ログ構造
+- `.cursor/specs/$1/spec.json`、`requirements.md`、`design.md`（存在する場合）
+- **`.cursor/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
+- `.cursor/templates/specs/design.md` からドキュメント構造
+- `.cursor/rules/design-principles.md` から設計原則
+- `.cursor/templates/specs/research.md` から発見ログ構造
 
 **要件承認の検証**:
 - `-y` フラグが提供された場合（$2 == "-y"）: spec.json で要件を自動承認
@@ -46,7 +46,7 @@ argument-hint: <feature-name:$1> [-y:$2]
 2. **適切な発見プロセスの実行**:
    
    **複雑/新機能の場合**:
-   - `.kiro/settings/rules/design-discovery-full.md` を読み込んで実行
+   - `.cursor/rules/design-discovery-full.md` を読み込んで実行
    - WebSearch/WebFetch を使用した徹底的な調査:
      - 最新のアーキテクチャパターンとベストプラクティス
      - 外部依存関係の検証（API、ライブラリ、バージョン、互換性）
@@ -54,7 +54,7 @@ argument-hint: <feature-name:$1> [-y:$2]
      - パフォーマンスベンチマークとセキュリティ考慮事項
    
    **拡張の場合**:
-   - `.kiro/settings/rules/design-discovery-light.md` を読み込んで実行
+   - `.cursor/rules/design-discovery-light.md` を読み込んで実行
    - 統合ポイント、既存パターン、互換性にフォーカス
    - Grep を使用して既存コードベースのパターンを分析
    
@@ -71,7 +71,7 @@ argument-hint: <feature-name:$1> [-y:$2]
    - 将来のタスク用の並列化考慮事項（依存関係を `research.md` にキャプチャ）
 
 4. **発見結果をリサーチログに永続化**:
-   - 共有テンプレートを使用して `.kiro/specs/$1/research.md` を作成または更新
+   - 共有テンプレートを使用して `.cursor/specs/$1/research.md` を作成または更新
    - 発見スコープと主要な発見をサマリーセクションに記録
    - リサーチログトピックに調査、ソース、影響を記録
    - テンプレートセクションを使用してアーキテクチャパターン評価、設計決定、リスクを文書化
@@ -80,8 +80,8 @@ argument-hint: <feature-name:$1> [-y:$2]
 ### ステップ3: 設計ドキュメントの生成
 
 1. **設計テンプレートとルールの読み込み**:
-   - `.kiro/settings/templates/specs/design.md` から構造
-   - `.kiro/settings/rules/design-principles.md` から原則
+   - `.cursor/templates/specs/design.md` から構造
+   - `.cursor/rules/design-principles.md` から原則
 
 2. **設計ドキュメントの生成**:
    - **specs/design.md テンプレート構造と生成指示に厳密に従う**
@@ -126,14 +126,14 @@ argument-hint: <feature-name:$1> [-y:$2]
 
 spec.json で指定された言語で簡潔なサマリーを提供:
 
-1. **ステータス**: `.kiro/specs/$1/design.md` に設計ドキュメント生成完了を確認
+1. **ステータス**: `.cursor/specs/$1/design.md` に設計ドキュメント生成完了を確認
 2. **発見タイプ**: どの発見プロセスが実行されたか（full/light/minimal）
 3. **主要な発見**: 設計を形作った2-3の重要な洞察
 4. **次のアクション**: 承認ワークフローのガイダンス（安全性とフォールバック参照）
 
 **フォーマット**: 簡潔なMarkdown（200語以内）- これはコマンド出力であり、設計ドキュメント自体ではない
 
-**注記**: 実際の設計ドキュメントは `.kiro/settings/templates/specs/design.md` 構造に従う。
+**注記**: 実際の設計ドキュメントは `.cursor/templates/specs/design.md` 構造に従う。
 
 ## 安全性とフォールバック
 
@@ -146,11 +146,11 @@ spec.json で指定された言語で簡潔なサマリーを提供:
 
 **要件が見つからない**:
 - **実行停止**: 要件ドキュメントが存在しなければならない
-- **ユーザーメッセージ**: "`.kiro/specs/$1/requirements.md` に requirements.md が見つかりません"
+- **ユーザーメッセージ**: "`.cursor/specs/$1/requirements.md` に requirements.md が見つかりません"
 - **提案アクション**: "先に `/kiro/spec-requirements $1` を実行して要件を生成してください"
 
 **テンプレートが見つからない**:
-- **ユーザーメッセージ**: "`.kiro/settings/templates/specs/design.md` にテンプレートファイルがありません"
+- **ユーザーメッセージ**: "`.cursor/templates/specs/design.md` にテンプレートファイルがありません"
 - **提案アクション**: "リポジトリセットアップを確認するか、テンプレートファイルを復元"
 - **フォールバック**: 警告付きでインライン基本構造を使用
 
@@ -159,7 +159,7 @@ spec.json で指定された言語で簡潔なサマリーを提供:
 - **続行**: 生成を続行するが、出力に制限を記載
 
 **発見の複雑さが不明確**:
-- **デフォルト**: フル発見プロセスを使用（`.kiro/settings/rules/design-discovery-full.md`）
+- **デフォルト**: フル発見プロセスを使用（`.cursor/rules/design-discovery-full.md`）
 - **根拠**: 重要なコンテキストを見逃すより過剰調査の方が良い
 - **無効な要件ID**:
   - **実行停止**: requirements.md に数値IDがない、または非数値の見出し（例: "Requirement A"）がある場合、停止して続行前に requirements.md の修正を指示。
@@ -167,7 +167,7 @@ spec.json で指定された言語で簡潔なサマリーを提供:
 ### 次のフェーズ: タスク生成
 
 **設計が承認された場合**:
-- `.kiro/specs/$1/design.md` で生成された設計をレビュー
+- `.cursor/specs/$1/design.md` で生成された設計をレビュー
 - **オプション**: `/kiro/validate-design $1` でインタラクティブな品質レビューを実行
 - その後 `/kiro/spec-tasks $1 -y` で実装タスクを生成
 

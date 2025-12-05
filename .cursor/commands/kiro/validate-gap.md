@@ -21,15 +21,15 @@ argument-hint: <feature-name:$1>
 ## 実行ステップ
 
 1. **コンテキストの読み込み**:
-   - `.kiro/specs/$1/spec.json` から言語とメタデータを読み込み
-   - `.kiro/specs/$1/requirements.md` から要件を読み込み
-   - **全ステアリングコンテキストを読み込み**: `.kiro/steering/` ディレクトリ全体を読み込み:
+   - `.cursor/specs/$1/spec.json` から言語とメタデータを読み込み
+   - `.cursor/specs/$1/requirements.md` から要件を読み込み
+   - **全ステアリングコンテキストを読み込み**: `.cursor/steering/` ディレクトリ全体を読み込み:
      - デフォルトファイル: `structure.md`, `tech.md`, `product.md`
      - すべてのカスタムステアリングファイル（モード設定に関係なく）
      - これにより完全なプロジェクトメモリとコンテキストを提供
 
 2. **分析ガイドラインの読み込み**:
-   - `.kiro/settings/rules/gap-analysis.md` から包括的な分析フレームワークを読み込み
+   - `.cursor/rules/gap-analysis.md` から包括的な分析フレームワークを読み込み
 
 3. **ギャップ分析の実行**:
    - gap-analysis.md フレームワークに従って徹底的な調査を実施

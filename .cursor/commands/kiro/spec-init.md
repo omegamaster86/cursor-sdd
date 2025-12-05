@@ -18,11 +18,11 @@ argument-hint: <project-description>
 プロジェクト説明（$ARGUMENTS）からユニークな機能名を生成し、仕様構造を初期化する。
 
 ## 実行ステップ
-1. **ユニーク性の確認**: `.kiro/specs/` で命名の競合を確認（必要に応じて数字サフィックスを付加）
-2. **ディレクトリ作成**: `.kiro/specs/[feature-name]/`
+1. **ユニーク性の確認**: `.cursor/specs/` で命名の競合を確認（必要に応じて数字サフィックスを付加）
+2. **ディレクトリ作成**: `.cursor/specs/[feature-name]/`
 3. **テンプレートを使用してファイルを初期化**:
-   - `.kiro/settings/templates/specs/init.json` を読み込み
-   - `.kiro/settings/templates/specs/requirements-init.md` を読み込み
+   - `.cursor/templates/specs/init.json` を読み込み
+   - `.cursor/templates/specs/requirements-init.md` を読み込み
    - プレースホルダーを置換:
      - `{{FEATURE_NAME}}` → 生成された機能名
      - `{{TIMESTAMP}}` → 現在の ISO 8601 タイムスタンプ
@@ -59,7 +59,7 @@ argument-hint: <project-description>
 
 ## 安全性とフォールバック
 - **機能名が曖昧**: 機能名生成が不明確な場合、2-3のオプションを提案しユーザーに選択を依頼
-- **テンプレートが見つからない**: `.kiro/settings/templates/specs/` にテンプレートファイルが存在しない場合、具体的な不足ファイルパスでエラーを報告し、リポジトリセットアップの確認を提案
+- **テンプレートが見つからない**: `.cursor/templates/specs/` にテンプレートファイルが存在しない場合、具体的な不足ファイルパスでエラーを報告し、リポジトリセットアップの確認を提案
 - **ディレクトリ競合**: 機能名が既に存在する場合、数字サフィックスを付加（例: `feature-name-2`）し、自動競合解決をユーザーに通知
 - **書き込み失敗**: 具体的なパスでエラーを報告し、権限またはディスク容量の確認を提案
 

@@ -1,11 +1,11 @@
 <meta>
-description: .kiro/steering/ を永続的なプロジェクト知識として管理
+description: .cursor/steering/ を永続的なプロジェクト知識として管理
 </meta>
 
 # Kiro ステアリング管理
 
 <background_information>
-**役割**: `.kiro/steering/` を永続的なプロジェクトメモリとして維持。
+**役割**: `.cursor/steering/` を永続的なプロジェクトメモリとして維持。
 
 **ミッション**:
 - ブートストラップ: コードベースからコアステアリングを生成（初回）
@@ -15,13 +15,13 @@ description: .kiro/steering/ を永続的なプロジェクト知識として管
 **成功基準**:
 - ステアリングは網羅的なリストではなく、パターンと原則をキャプチャ
 - コードのドリフトを検出して報告
-- すべての `.kiro/steering/*.md` を同等に扱う（コア＋カスタム）
+- すべての `.cursor/steering/*.md` を同等に扱う（コア＋カスタム）
 </background_information>
 
 <instructions>
 ## シナリオ検出
 
-`.kiro/steering/` のステータスを確認:
+`.cursor/steering/` のステータスを確認:
 
 **ブートストラップモード**: 空 または コアファイル（product.md, tech.md, structure.md）が不足  
 **同期モード**: すべてのコアファイルが存在
@@ -30,7 +30,7 @@ description: .kiro/steering/ を永続的なプロジェクト知識として管
 
 ## ブートストラップフロー
 
-1. `.kiro/settings/templates/steering/` からテンプレートを読み込み
+1. `.cursor/templates/steering/` からテンプレートを読み込み
 2. コードベースを分析（JIT）:
    - `glob_file_search` でソースファイルを検索
    - `read_file` で README、package.json などを読み込み
@@ -40,7 +40,7 @@ description: .kiro/steering/ を永続的なプロジェクト知識として管
    - Tech: フレームワーク、決定事項、規約
    - Structure: 構成、命名、インポート
 4. ステアリングファイルを生成（テンプレートに従う）
-5. `.kiro/settings/rules/steering-principles.md` から原則を読み込み
+5. `.cursor/rules/steering-principles.md` から原則を読み込み
 6. レビュー用にサマリーを提示
 
 **フォーカス**: ファイル/依存関係のカタログではなく、決定をガイドするパターン。
@@ -49,7 +49,7 @@ description: .kiro/steering/ を永続的なプロジェクト知識として管
 
 ## 同期フロー
 
-1. すべての既存ステアリングを読み込み（`.kiro/steering/*.md`）
+1. すべての既存ステアリングを読み込み（`.cursor/steering/*.md`）
 2. コードベースの変更を分析（JIT）
 3. ドリフトを検出:
    - **ステアリング → コード**: 不足要素 → 警告
@@ -64,7 +64,7 @@ description: .kiro/steering/ を永続的なプロジェクト知識として管
 
 ## 粒度の原則
 
-`.kiro/settings/rules/steering-principles.md` より:
+`.cursor/rules/steering-principles.md` より:
 
 > "新しいコードが既存パターンに従う場合、ステアリングの更新は不要であるべき。"
 
@@ -133,12 +133,12 @@ description: .kiro/steering/ を永続的なプロジェクト知識として管
 
 ## 注記
 
-- すべての `.kiro/steering/*.md` はプロジェクトメモリとして読み込まれる
+- すべての `.cursor/steering/*.md` はプロジェクトメモリとして読み込まれる
 - テンプレートと原則はカスタマイズ用に外部化
 - カタログではなくパターンにフォーカス
 - "黄金律": パターンに従う新コードはステアリング更新不要
 - エージェント固有のツールディレクトリ（`.cursor/`、`.gemini/`、`.claude/` など）の文書化を避ける
-- `.kiro/settings/` のコンテンツはステアリングファイルに文書化すべきではない（設定はメタデータ、プロジェクト知識ではない）
-- `.kiro/specs/` と `.kiro/steering/` への軽い参照は許容、他の `.kiro/` ディレクトリは避ける
+- `.cursor/rules/` や `.cursor/templates/` のコンテンツはステアリングファイルに文書化すべきではない（設定はメタデータ、プロジェクト知識ではない）
+- `.cursor/specs/` と `.cursor/steering/` への軽い参照は許容
 
 </output>

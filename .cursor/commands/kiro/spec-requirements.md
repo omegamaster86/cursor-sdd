@@ -21,16 +21,16 @@ requirements.md のプロジェクト説明に基づいて、機能 **$1** の�
 ## 実行ステップ
 
 1. **コンテキストの読み込み**:
-   - `.kiro/specs/$1/spec.json` から言語とメタデータを読み込み
-   - `.kiro/specs/$1/requirements.md` からプロジェクト説明を読み込み
-   - **全ステアリングコンテキストを読み込み**: `.kiro/steering/` ディレクトリ全体を読み込み:
+   - `.cursor/specs/$1/spec.json` から言語とメタデータを読み込み
+   - `.cursor/specs/$1/requirements.md` からプロジェクト説明を読み込み
+   - **全ステアリングコンテキストを読み込み**: `.cursor/steering/` ディレクトリ全体を読み込み:
      - デフォルトファイル: `structure.md`, `tech.md`, `product.md`
      - すべてのカスタムステアリングファイル（モード設定に関係なく）
      - これにより完全なプロジェクトメモリとコンテキストを提供
 
 2. **ガイドラインの読み込み**:
-   - `.kiro/settings/rules/ears-format.md` から EARS 構文ルールを読み込み
-   - `.kiro/settings/templates/specs/requirements.md` からドキュメント構造を読み込み
+   - `.cursor/rules/ears-format.md` から EARS 構文ルールを読み込み
+   - `.cursor/templates/specs/requirements.md` からドキュメント構造を読み込み
 
 3. **要件の生成**:
    - プロジェクト説明に基づいて初期要件を作成
@@ -82,7 +82,7 @@ spec.json で指定された言語で以下を出力:
 ### 次のフェーズ: 設計生成
 
 **要件が承認された場合**:
-- `.kiro/specs/$1/requirements.md` で生成された要件をレビュー
+- `.cursor/specs/$1/requirements.md` で生成された要件をレビュー
 - **オプションのギャップ分析**（既存コードベース用）:
   - `/kiro/validate-gap $1` を実行して現在のコードとの実装ギャップを分析
   - 既存コンポーネント、統合ポイント、実装戦略を特定

@@ -23,7 +23,7 @@ description: 特化したプロジェクトコンテキスト用のカスタム�
    - 文書化する具体的な要件やパターン
 
 2. **テンプレートの存在確認**:
-   - 利用可能な場合 `.kiro/settings/templates/steering-custom/{name}.md` から読み込み
+   - 利用可能な場合 `.cursor/templates/steering-custom/{name}.md` から読み込み
    - 出発点として使用し、プロジェクトに基づいてカスタマイズ
 
 3. **コードベースを分析**（JIT）して関連パターンを抽出:
@@ -33,15 +33,15 @@ description: 特化したプロジェクトコンテキスト用のカスタム�
 
 4. **カスタムステアリングを生成**:
    - 利用可能な場合はテンプレート構造に従う
-   - `.kiro/settings/rules/steering-principles.md` の原則を適用
+   - `.cursor/rules/steering-principles.md` の原則を適用
    - 網羅的リストではなくパターンにフォーカス
    - 100-200行に収める（2-3分で読める量）
 
-5. **ファイルを作成** `.kiro/steering/{name}.md` に
+5. **ファイルを作成** `.cursor/steering/{name}.md` に
 
 ## 利用可能なテンプレート
 
-`.kiro/settings/templates/steering-custom/` で利用可能なテンプレート:
+`.cursor/templates/steering-custom/` で利用可能なテンプレート:
 
 1. **api-standards.md** - REST/GraphQL規約、エラーハンドリング
 2. **testing.md** - テスト構成、モック、カバレッジ
@@ -55,7 +55,7 @@ description: 特化したプロジェクトコンテキスト用のカスタム�
 
 ## ステアリング原則
 
-`.kiro/settings/rules/steering-principles.md` より:
+`.cursor/rules/steering-principles.md` より:
 
 - **リストよりパターン**: すべてのファイル/コンポーネントではなくパターンを文書化
 - **単一ドメイン**: ファイルごとに1トピック
@@ -82,7 +82,7 @@ description: 特化したプロジェクトコンテキスト用のカスタム�
 ✅ カスタムステアリング作成完了
 
 ## 作成:
-- .kiro/steering/api-standards.md
+- .cursor/steering/api-standards.md
 
 ## 基づいた情報:
 - テンプレート: api-standards.md
@@ -123,6 +123,6 @@ description: 特化したプロジェクトコンテキスト用のカスタム�
 - すべてのステアリングファイルはプロジェクトメモリとして読み込まれる
 - カスタムファイルはコアファイルと同等に重要
 - エージェント固有のツールディレクトリ（`.cursor/`、`.gemini/`、`.claude/` など）の文書化を避ける
-- `.kiro/specs/` と `.kiro/steering/` への軽い参照は許容、他の `.kiro/` ディレクトリは避ける
+- `.cursor/specs/` と `.cursor/steering/` への軽い参照は許容
 
 </output>

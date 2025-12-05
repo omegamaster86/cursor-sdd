@@ -23,9 +23,9 @@ argument-hint: <feature-name:$1> [-y:$2] [--sequential:$3]
 ### ステップ1: コンテキストの読み込み
 
 **必要なすべてのコンテキストを読み込み**:
-- `.kiro/specs/$1/spec.json`、`requirements.md`、`design.md`
-- `.kiro/specs/$1/tasks.md`（存在する場合、マージモード用）
-- **`.kiro/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
+- `.cursor/specs/$1/spec.json`、`requirements.md`、`design.md`
+- `.cursor/specs/$1/tasks.md`（存在する場合、マージモード用）
+- **`.cursor/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
 
 **承認の検証**:
 - `-y` フラグが提供された場合（$2 == "-y"）: spec.json で要件と設計を自動承認
@@ -33,16 +33,16 @@ argument-hint: <feature-name:$1> [-y:$2] [--sequential:$3]
 - シーケンシャルモードの判定: `sequential = ($3 == "--sequential")`
 
 機能: $1
-Specディレクトリ: .kiro/specs/$1/
+Specディレクトリ: .cursor/specs/$1/
 自動承認: {$2 == "-y" なら true、それ以外 false}
 シーケンシャルモード: {sequential なら true、それ以外 false}
 
 読み込むファイルパターン:
-- .kiro/specs/$1/*.{json,md}
-- .kiro/steering/*.md
-- .kiro/settings/rules/tasks-generation.md
-- .kiro/settings/rules/tasks-parallel-analysis.md（シーケンシャルモードが false の場合のみ含める）
-- .kiro/settings/templates/specs/tasks.md
+- .cursor/specs/$1/*.{json,md}
+- .cursor/steering/*.md
+- .cursor/rules/tasks-generation.md
+- .cursor/rules/tasks-parallel-analysis.md（シーケンシャルモードが false の場合のみ含める）
+- .cursor/templates/specs/tasks.md
 
 モード: {tasks.md の存在に基づいて generate または merge}
 命令ハイライト:
@@ -54,9 +54,9 @@ Specディレクトリ: .kiro/specs/$1/
 ### ステップ2: 実装タスクの生成
 
 **生成ルールとテンプレートの読み込み**:
-- `.kiro/settings/rules/tasks-generation.md` から原則を読み込み
-- `sequential == false` の場合: `.kiro/settings/rules/tasks-parallel-analysis.md` から並列判定基準を読み込み
-- `.kiro/settings/templates/specs/tasks.md` からフォーマットを読み込み（`(P)` マーカーをサポート）
+- `.cursor/rules/tasks-generation.md` から原則を読み込み
+- `sequential == false` の場合: `.cursor/rules/tasks-parallel-analysis.md` から並列判定基準を読み込み
+- `.cursor/templates/specs/tasks.md` からフォーマットを読み込み（`(P)` マーカーをサポート）
 
 **すべてのルールに従ってタスクリストを生成**:
 - spec.json で指定された言語を使用
@@ -72,7 +72,7 @@ Specディレクトリ: .kiro/specs/$1/
 ### ステップ3: 最終化
 
 **書き込みと更新**:
-- `.kiro/specs/$1/tasks.md` を作成/更新
+- `.cursor/specs/$1/tasks.md` を作成/更新
 - spec.json メタデータを更新:
   - `phase: "tasks-generated"` を設定
   - `approvals.tasks.generated: true, approved: false` を設定
@@ -97,7 +97,7 @@ Specディレクトリ: .kiro/specs/$1/
 
 spec.json で指定された言語で簡潔なサマリーを提供:
 
-1. **ステータス**: `.kiro/specs/$1/tasks.md` にタスク生成完了を確認
+1. **ステータス**: `.cursor/specs/$1/tasks.md` にタスク生成完了を確認
 2. **タスクサマリー**: 
    - 合計: メジャータスク X 個、サブタスク Y 個
    - Z 個のすべての要件をカバー
@@ -121,7 +121,7 @@ spec.json で指定された言語で簡潔なサマリーを提供:
 
 **要件または設計が見つからない**:
 - **実行停止**: 両方のドキュメントが存在しなければならない
-- **ユーザーメッセージ**: "`.kiro/specs/$1/` に requirements.md または design.md がありません"
+- **ユーザーメッセージ**: "`.cursor/specs/$1/` に requirements.md または design.md がありません"
 - **提案アクション**: "要件と設計フェーズを先に完了してください"
 
 **不完全な要件カバレッジ**:
@@ -129,7 +129,7 @@ spec.json で指定された言語で簡潔なサマリーを提供:
 - **ユーザーアクション必要**: 意図的なギャップを確認するか、タスクを再生成
 
 **テンプレート/ルールが見つからない**:
-- **ユーザーメッセージ**: "`.kiro/settings/` にテンプレートまたはルールファイルがありません"
+- **ユーザーメッセージ**: "`.cursor/rules/` または `.cursor/templates/` にテンプレートまたはルールファイルがありません"
 - **フォールバック**: 警告付きでインライン基本構造を使用
 - **提案アクション**: "リポジトリのセットアップを確認するか、テンプレートファイルを復元"
 - **数値要件IDが見つからない**:
