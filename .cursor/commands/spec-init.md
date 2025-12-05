@@ -64,5 +64,3 @@ argument-hint: <project-description>
 - **書き込み失敗**: 具体的なパスでエラーを報告し、権限またはディスク容量の確認を提案
 
 </output>
-</output>
-
