@@ -23,8 +23,8 @@ argument-hint: <feature-name:$1> [task-numbers:$2]
 ### ステップ1: コンテキストの読み込み
 
 **必要なすべてのコンテキストを読み込み**:
-- `.kiro/specs/$1/spec.json`、`requirements.md`、`design.md`、`tasks.md`
-- **`.kiro/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
+- `.cursor/specs/$1/spec.json`、`requirements.md`、`design.md`、`tasks.md`
+- **`.cursor/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
 
 **承認の検証**:
 - spec.json でタスクが承認されていることを確認（されていない場合は停止、安全性とフォールバック参照）
