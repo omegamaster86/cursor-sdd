@@ -2,7 +2,7 @@
 description: .cursor/steering/ を永続的なプロジェクト知識として管理
 </meta>
 
-# Kiro ステアリング管理
+# ステアリング管理
 
 <background_information>
 **役割**: `.cursor/steering/` を永続的なプロジェクトメモリとして維持。
