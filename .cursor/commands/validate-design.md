@@ -21,9 +21,9 @@ argument-hint: <feature-name:$1>
 ## 実行ステップ
 
 1. **コンテキストの読み込み**:
-   - `.cursor/specs/$1/spec.json` から言語とメタデータを読み込み
-   - `.cursor/specs/$1/requirements.md` から要件を読み込み
-   - `.cursor/specs/$1/design.md` から設計ドキュメントを読み込み
+   - `.cursor/$1/spec.json` から言語とメタデータを読み込み
+   - `.cursor/$1/requirements.md` から要件を読み込み
+   - `.cursor/$1/design.md` から設計ドキュメントを読み込み
    - **全ステアリングコンテキストを読み込み**: `.cursor/steering/` ディレクトリ全体を読み込み:
      - デフォルトファイル: `structure.md`, `tech.md`, `product.md`
      - すべてのカスタムステアリングファイル（モード設定に関係なく）

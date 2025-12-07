@@ -139,7 +139,7 @@ description: .cursor/steering/ を永続的なプロジェクト知識として�
 - "黄金律": パターンに従う新コードはステアリング更新不要
 - エージェント固有のツールディレクトリ（`.cursor/`、`.gemini/`、`.claude/` など）の文書化を避ける
 - `.cursor/rules/` や `.cursor/templates/` のコンテンツはステアリングファイルに文書化すべきではない（設定はメタデータ、プロジェクト知識ではない）
-- `.cursor/specs/` と `.cursor/steering/` への軽い参照は許容
+- `.cursor/` と `.cursor/steering/` への軽い参照は許容
 
 </output>
 </output>

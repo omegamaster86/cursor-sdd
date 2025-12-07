@@ -123,7 +123,7 @@ description: 特化したプロジェクトコンテキスト用のカスタム�
 - すべてのステアリングファイルはプロジェクトメモリとして読み込まれる
 - カスタムファイルはコアファイルと同等に重要
 - エージェント固有のツールディレクトリ（`.cursor/`、`.gemini/`、`.claude/` など）の文書化を避ける
-- `.cursor/specs/` と `.cursor/steering/` への軽い参照は許容
+- `.cursor/` と `.cursor/steering/` への軽い参照は許容
 
 </output>
 </output>

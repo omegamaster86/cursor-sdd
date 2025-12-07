@@ -28,11 +28,11 @@ argument-hint: [feature-name:$1] [task-numbers:$2]
 - 各実行から機能名とタスク番号を抽出
 - 機能ごとに実装されたすべてのタスクを集約
 - 検出された実装を報告（例: "user-auth: 1.1, 1.2, 1.3"）
-- 履歴が見つからない場合、`.cursor/specs/` をスキャンして完了タスク `[x]` を持つ機能を検索
+- 履歴が見つからない場合、`.cursor/` をスキャンして完了タスク `[x]` を持つ機能を検索
 
 **機能が提供された場合**（`$1` あり、`$2` 空）:
 - 指定された機能を使用
-- `.cursor/specs/$1/tasks.md` で完了したすべてのタスク `[x]` を検出
+- `.cursor/$1/tasks.md` で完了したすべてのタスク `[x]` を検出
 
 **機能とタスクの両方が提供された場合**（`$1` と `$2` あり）:
 - 指定された機能とタスクのみを検証（例: `user-auth 1.1,1.2`）
@@ -40,10 +40,10 @@ argument-hint: [feature-name:$1] [task-numbers:$2]
 ### 2. コンテキストの読み込み
 
 検出された各機能について:
-- `.cursor/specs/<feature>/spec.json` からメタデータを読み込み
-- `.cursor/specs/<feature>/requirements.md` から要件を読み込み
-- `.cursor/specs/<feature>/design.md` から設計構造を読み込み
-- `.cursor/specs/<feature>/tasks.md` からタスクリストを読み込み
+- `.cursor/<feature>/spec.json` からメタデータを読み込み
+- `.cursor/<feature>/requirements.md` から要件を読み込み
+- `.cursor/<feature>/design.md` から設計構造を読み込み
+- `.cursor/<feature>/tasks.md` からタスクリストを読み込み
 - **全ステアリングコンテキストを読み込み**: `.cursor/steering/` ディレクトリ全体を読み込み:
   - デフォルトファイル: `structure.md`, `tech.md`, `product.md`
   - すべてのカスタムステアリングファイル（モード設定に関係なく）
