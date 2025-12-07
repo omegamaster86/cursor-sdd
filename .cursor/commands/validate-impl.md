@@ -44,9 +44,6 @@ argument-hint: [feature-name:$1] [task-numbers:$2]
 - `.cursor/<feature>/requirements.md` から要件を読み込み
 - `.cursor/<feature>/design.md` から設計構造を読み込み
 - `.cursor/<feature>/tasks.md` からタスクリストを読み込み
-- **全ステアリングコンテキストを読み込み**: `.cursor/steering/` ディレクトリ全体を読み込み:
-  - デフォルトファイル: `structure.md`, `tech.md`, `product.md`
-  - すべてのカスタムステアリングファイル（モード設定に関係なく）
 
 ### 3. 検証の実行
 
@@ -95,7 +92,7 @@ spec.json で指定された言語でサマリーを提供:
 
 ## ツールガイダンス
 - **会話解析**: 履歴から `/spec-impl` パターンを抽出
-- **コンテキスト読み込み**: 検証前にすべてのspecとsteeringを読み込み
+- **コンテキスト読み込み**: 検証前にすべてのspecを読み込み
 - **テスト用Bash**: テストコマンドを実行して合格状態を確認
 - **トレーサビリティ用Grep**: 要件の証拠をコードベースで検索
 - **構造用LS/Glob**: ファイル構造が設計と一致することを確認

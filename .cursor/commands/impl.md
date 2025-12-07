@@ -24,7 +24,6 @@ argument-hint: <feature-name:$1> [task-numbers:$2]
 
 **必要なすべてのコンテキストを読み込み**:
 - `.cursor/$1/spec.json`、`requirements.md`、`design.md`、`tasks.md`
-- **`.cursor/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
 
 **承認の検証**:
 - spec.json でタスクが承認されていることを確認（されていない場合は停止、安全性とフォールバック参照）

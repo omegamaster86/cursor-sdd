@@ -25,7 +25,6 @@ argument-hint: <feature-name:$1> [-y:$2] [--sequential:$3]
 **必要なすべてのコンテキストを読み込み**:
 - `.cursor/$1/spec.json`、`requirements.md`、`design.md`
 - `.cursor/$1/tasks.md`（存在する場合、マージモード用）
-- **`.cursor/steering/` ディレクトリ全体** 完全なプロジェクトメモリ用
 
 **承認の検証**:
 - `-y` フラグが提供された場合（$2 == "-y"）: spec.json で要件と設計を自動承認
@@ -39,7 +38,6 @@ argument-hint: <feature-name:$1> [-y:$2] [--sequential:$3]
 
 読み込むファイルパターン:
 - .cursor/$1/*.{json,md}
-- .cursor/steering/*.md
 - .cursor/rules/tasks-generation.md
 - .cursor/rules/tasks-parallel-analysis.md（シーケンシャルモードが false の場合のみ含める）
 - .cursor/templates/specs/tasks.md
