@@ -33,7 +33,7 @@ argument-hint: <feature-name:$1> [-y:$2] [--sequential:$3]
 - シーケンシャルモードの判定: `sequential = ($3 == "--sequential")`
 
 機能: $1
-Specディレクトリ: .cursor/$1/
+機能ディレクトリ: .cursor/$1/
 自動承認: {$2 == "-y" なら true、それ以外 false}
 シーケンシャルモード: {sequential なら true、それ以外 false}
 

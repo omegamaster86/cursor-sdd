@@ -27,7 +27,7 @@ argument-hint: <project-description>
      - `{{FEATURE_NAME}}` → 生成された機能名
      - `{{TIMESTAMP}}` → 現在の ISO 8601 タイムスタンプ
      - `{{PROJECT_DESCRIPTION}}` → $ARGUMENTS
-   - `spec.json` と `requirements.md` を spec ディレクトリに書き込み
+   - `spec.json` と `requirements.md` を `.cursor/[feature-name]/` に書き込み
 
 ## 重要な制約
 - この段階で requirements/design/tasks を生成しない
@@ -37,7 +37,7 @@ argument-hint: <project-description>
 </instructions>
 
 ## ツールガイダンス
-- **Glob** を使用して既存のspecディレクトリを確認し、名前のユニーク性を検証
+- **Glob** を使用して `.cursor/` 内の既存ディレクトリを確認し、名前のユニーク性を検証
 - **Read** を使用してテンプレートを取得: `init.json` と `requirements-init.md`
 - **Write** を使用してプレースホルダー置換後に spec.json と requirements.md を作成
 - ファイル書き込み操作前に検証を実行
