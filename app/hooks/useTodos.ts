@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import type { Todo, FilterType, UseTodosReturn } from '../types/todo';
+
+const STORAGE_KEY = 'todos';
 
 /**
  * UUIDを生成
@@ -11,13 +13,58 @@ const generateId = (): string => {
 };
 
 /**
+ * LocalStorageからTodosを読み込む
+ */
+const loadTodos = (): Todo[] => {
+  if (typeof window === 'undefined') return [];
+  
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return [];
+    return JSON.parse(stored) as Todo[];
+  } catch (error) {
+    console.warn('Failed to load todos from localStorage:', error);
+    return [];
+  }
+};
+
+/**
+ * LocalStorageにTodosを保存
+ */
+const saveTodos = (todos: Todo[]): void => {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  } catch (error) {
+    console.warn('Failed to save todos to localStorage:', error);
+  }
+};
+
+/**
  * Todoの状態管理とCRUD操作を提供するカスタムフック
+ * LocalStorageによるデータ永続化を含む
  * 
  * @returns UseTodosReturn - タスク状態と操作関数
  */
 export function useTodos(): UseTodosReturn {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<FilterType>('all');
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // 初回マウント時にLocalStorageからデータを復元
+  useEffect(() => {
+    const storedTodos = loadTodos();
+    setTodos(storedTodos);
+    setIsInitialized(true);
+  }, []);
+
+  // タスク変更時に自動保存（初期化完了後のみ）
+  useEffect(() => {
+    if (isInitialized) {
+      saveTodos(todos);
+    }
+  }, [todos, isInitialized]);
 
   // フィルタリング済みタスクリスト
   const filteredTodos = useMemo(() => {
