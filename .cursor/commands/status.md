@@ -84,5 +84,3 @@ spec.json で指定された言語でステータスレポートを提供:
 - `.cursor/` 内のすべてのspecをステータスとともに表示
 
 </output>
-</output>
-
